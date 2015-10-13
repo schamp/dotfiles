@@ -1,0 +1,6 @@
+[alias]
+	s = status
+	co = checkout
+[user]
+	name = Andrew Schamp
+	email = aschamp@cpstn.com
