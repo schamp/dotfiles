@@ -1,6 +1,11 @@
 [alias]
 	s = status
+	k = !"gitk --all &"
 	co = checkout
 [user]
 	name = Andrew Schamp
 	email = aschamp@cpstn.com
+[push]
+	default = simple
+[core]
+	excludesfile = /Users/aschamp/.gitexcludes
