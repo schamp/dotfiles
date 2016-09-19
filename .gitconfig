@@ -5,7 +5,10 @@
 	m = merge --ff-only
 	dt = difftool
 	mt = mergetool
-	sup = submodule update --init --recursive
+    sup = submodule update --init --recursive
+    orphank = !"gitk --all `git reflog | cut -d \" \" -f 1` &"
+    orphanl = !"git log --pretty=oneline --abbrev-commit --graph --decorate $(git reflog | cut -d \" \" -f 1) "
+
 [user]
 	name = Andrew Schamp
 	email = aschamp@cpstn.com
@@ -13,6 +16,8 @@
 	default = simple
 [core]
 	excludesfile = /Users/aschamp/.gitignore_global
+#	pager = diff-so-fancy | less --tabs=4 -RFX --pattern='^(added|deleted|modified): '
+	editor = gvim -f
 [diff]
 	tool = bc3
 [merge]
@@ -32,9 +37,9 @@
 	whitespace = red reverse
 [color "diff-highlight"]
 	oldNormal = red bold
-	oldHighlight = "red bold 52"
-	newNormal = "green bold"
-	newHighlight = "green bold 22"
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
 [color "branch"]
 	current = yellow reverse
 	local = yellow
@@ -43,3 +48,9 @@
 	added = yellow
 	changed = green
 	untracked = cyan
+[diff-so-fancy]
+	stripLeadingSymbols = false
+[gitlab]
+	url = https://git.carekinesis.net
+[apply]
+	whitespace = nowarn
